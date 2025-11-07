@@ -24,6 +24,11 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'sensor_publisher = sensor_fusion_system.sensor_publisher:main',
+            'data_logger = sensor_fusion_system.data_logger:main',
+            'alert_system = sensor_fusion_system.alert_system:main',
+            'sensor_fusion = sensor_fusion_system.sensor_fusion:main',
+       
         ],
     },
 )
