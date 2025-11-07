@@ -244,7 +244,7 @@ MIT License - see LICENSE file for details
 
 ## Authors
 
-- Your Name <your.email@example.com>
+- Mohammed Al-Taharwah
 
 ## Acknowledgments
 
@@ -256,8 +256,8 @@ MIT License - see LICENSE file for details
 
 For issues and questions:
 - GitHub Issues: <repository_url>/issues
-- Email: your.email@example.com
-- ROS Answers: https://answers.ros.org
+- Email: mtahrawe685@gmail.com
+
 
 ## Version History
 
