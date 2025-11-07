@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: sensor-fusion-system
-Version: 0.1.0
-Summary: A ROS 2 package for sensor fusion simulation, logging, and alerting.
-Maintainer: mtahr
-Maintainer-email: mtahr@todo.todo
-License: Apache 2.0
