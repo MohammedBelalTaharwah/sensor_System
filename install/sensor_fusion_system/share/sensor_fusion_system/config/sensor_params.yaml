@@ -1,0 +1,64 @@
+# Sensor Fusion System Configuration
+
+sensor_publisher:
+  ros__parameters:
+    # Publishing rates (Hz)
+    imu_rate: 10.0
+    gps_rate: 1.0
+    temp_rate: 2.0
+    baro_rate: 2.0
+    
+    # Base sensor values
+    base_latitude: 31.9522
+    base_longitude: 35.9330
+    base_altitude: 750.0
+    base_temperature: 25.0
+    base_pressure: 101325.0
+    
+    # Noise parameters
+    imu_accel_noise: 0.1
+    imu_gyro_noise: 0.01
+    gps_position_noise: 0.0001
+    gps_altitude_noise: 5.0
+    temp_noise: 0.5
+    pressure_noise: 100.0
+
+data_logger:
+  ros__parameters:
+    log_directory: "~/sensor_logs"
+    log_interval: 1.0  # seconds
+    statistics_interval: 5.0  # seconds
+    max_data_points: 1000
+
+alert_system:
+  ros__parameters:
+    alert_cooldown: 5.0  # seconds
+    
+    # IMU thresholds
+    imu_accel_max: 20.0  # m/s²
+    imu_gyro_max: 5.0    # rad/s
+    
+    # Temperature thresholds
+    temp_min: -40.0  # °C
+    temp_max: 85.0   # °C
+    
+    # Pressure thresholds
+    pressure_min: 30000.0   # Pa
+    pressure_max: 120000.0  # Pa
+    
+    # Altitude thresholds
+    altitude_min: -500.0   # meters
+    altitude_max: 10000.0  # meters
+
+sensor_fusion:
+  ros__parameters:
+    filter_window: 5
+    publish_rate: 5.0  # Hz
+    
+    # Kalman filter parameters (if implemented)
+    process_noise: 0.01
+    measurement_noise: 0.1
+    
+    # Altitude calculation parameters
+    sea_level_pressure: 101325.0  # Pa
+    temperature_lapse_rate: 0.0065  # K/m
