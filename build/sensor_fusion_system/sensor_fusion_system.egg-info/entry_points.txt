@@ -1,0 +1,5 @@
+[console_scripts]
+alert_system = sensor_fusion_system.alert_system:main
+data_logger = sensor_fusion_system.data_logger:main
+sensor_fusion = sensor_fusion_system.sensor_fusion:main
+sensor_publisher = sensor_fusion_system.sensor_publisher:main
