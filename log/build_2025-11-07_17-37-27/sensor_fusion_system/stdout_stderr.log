@@ -1,0 +1,26 @@
+running egg_info
+writing ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/PKG-INFO
+writing dependency_links to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/dependency_links.txt
+writing entry points to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/entry_points.txt
+writing requirements to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/requires.txt
+writing top-level names to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/top_level.txt
+reading manifest file '../../build/sensor_fusion_system/sensor_fusion_system.egg-info/SOURCES.txt'
+writing manifest file '../../build/sensor_fusion_system/sensor_fusion_system.egg-info/SOURCES.txt'
+running build
+running build_py
+copying sensor_fusion_system/sensor_fusion.py -> /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib/sensor_fusion_system
+running install
+running install_lib
+copying /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib/sensor_fusion_system/sensor_fusion.py -> /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system
+byte-compiling /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system/sensor_fusion.py to sensor_fusion.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system-0.1.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/sensor_fusion_system/sensor_fusion_system.egg-info to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system-0.1.0-py3.12.egg-info
+running install_scripts
+Installing alert_system script to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/sensor_fusion_system
+Installing data_logger script to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/sensor_fusion_system
+Installing sensor_fusion script to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/sensor_fusion_system
+Installing sensor_publisher script to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/sensor_fusion_system
+Installing visualizer script to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/sensor_fusion_system
+writing list of installed files to '/home/mtahr/sensor_System/build/sensor_fusion_system/install.log'
