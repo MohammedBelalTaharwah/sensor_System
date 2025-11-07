@@ -1,7 +1,8 @@
 import rclpy
 from rclpy.node import Node
 import numpy as np
-from sensor_msgs.msg import Imu, NavSatFix, Temperature, FluidPressure
+# --- تعديل ---: إضافة 'NavSatStatus'
+from sensor_msgs.msg import Imu, NavSatFix, Temperature, FluidPressure, NavSatStatus 
 from geometry_msgs.msg import Quaternion
 
 class SensorPublisherNode(Node):
@@ -35,7 +36,7 @@ class SensorPublisherNode(Node):
         self.create_timer(0.5, self.publish_temp)   # 2 Hz
         self.create_timer(0.5, self.publish_baro)   # 2 Hz
 
-        self.get_logger().info("Sensor Publisher Node started (Full Version). Publishing all sensors...")
+        self.get_logger().info("Sensor Publisher Node started (Full Version - GPS Fix). Publishing all sensors...")
 
     def add_noise(self, value, noise_stddev):
         """Helper function to add Gaussian noise."""
@@ -60,7 +61,11 @@ class SensorPublisherNode(Node):
         msg = NavSatFix()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.header.frame_id = "gps_link"
-        msg.status.status = NavSatFix.STATUS_FIX
+        
+        # --- تعديل ---: إصلاح الخطأ
+        # المتغير موجود في 'NavSatStatus' وليس 'NavSatFix'
+        msg.status.status = NavSatStatus.STATUS_FIX
+        
         msg.latitude = self.add_noise(31.9539, self.gps_noise * 0.00001)
         msg.longitude = self.add_noise(35.9106, self.gps_noise * 0.00001)
         msg.altitude = self.add_noise(750.0, self.gps_noise)
@@ -80,7 +85,6 @@ class SensorPublisherNode(Node):
         msg = FluidPressure()
         msg.header.stamp = self.get_clock().now().to_msg()
         msg.header.frame_id = "baro_sensor_link"
-        # ضغط جوي لارتفاع 750م
         msg.fluid_pressure = self.add_noise(92500.0, self.baro_noise) 
         msg.variance = self.baro_noise**2
         self.baro_pub.publish(msg)
@@ -88,15 +92,16 @@ class SensorPublisherNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
+    node = None # --- تعديل ---: تعريف المتغير مسبقاً
     try:
         node = SensorPublisherNode()
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info("Sensor Publisher shutting down.")
+        if node: node.get_logger().info("Sensor Publisher shutting down.") # --- تعديل ---: التحقق قبل التدمير
     except Exception as e:
-        node.get_logger().error(f"An error occurred: {e}")
+        if node: node.get_logger().error(f"An error occurred: {e}") # --- تعديل ---: التحقق قبل التسجيل
     finally:
-        if rclpy.ok():
+        if node and rclpy.ok(): # --- تعديل ---: التحقق قبل التدمير
             node.destroy_node()
             rclpy.shutdown()
 
