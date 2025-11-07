@@ -53,8 +53,6 @@ setup(
             'alert_system = sensor_fusion_system.alert_system:main',
             'sensor_fusion = sensor_fusion_system.sensor_fusion:main',
             
-            # هذا النود الخامس مطلوب بواسطة ملف التشغيل (launch file)
-            # نفترض أن اسم الملف هو 'visualization.py'
             'visualizer = sensor_fusion_system.visualization:main',
         ],
     },
