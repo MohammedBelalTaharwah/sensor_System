@@ -16,6 +16,7 @@ sensor_fusion_system/alert_system.py
 sensor_fusion_system/data_logger.py
 sensor_fusion_system/sensor_fusion.py
 sensor_fusion_system/sensor_publisher.py
+sensor_fusion_system/visualization.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
