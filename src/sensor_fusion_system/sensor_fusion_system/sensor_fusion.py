@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import SensorDataQoS
+# تم حذف 'SensorDataQoS' من هذا السطر
 import numpy as np
 from collections import deque
 from sensor_msgs.msg import Temperature, FluidPressure
@@ -16,28 +16,27 @@ class SensorFusionNode(Node):
     SEA_LEVEL_PRESSURE_PA = 101325.0  # (Pa)
     
     def __init__(self):
-        # اسم النود في الطرفية سيكون 'sensor_fusion_node'
         super().__init__('sensor_fusion_node') 
 
-        # الإعلان عن الإعدادات واستلامها
         self.declare_parameter('temp_filter_window_size', 10)
         self.declare_parameter('altitude_filter_window_size', 5)
         temp_window_size = self.get_parameter('temp_filter_window_size').value
         alt_window_size = self.get_parameter('altitude_filter_window_size').value
         
-        # مخازن بيانات مؤقتة للفلترة
         self.temp_buffer = deque(maxlen=temp_window_size)
         self.altitude_buffer = deque(maxlen=alt_window_size)
 
+        # --- تم التعديل هنا ---
         # المشتركون (Subscribers)
-        qos_profile = SensorDataQoS()
+        # تم حذف 'qos_profile = SensorDataQoS()'
+        # نستخدم '10' (الإعداد الافتراضي) تماماً مثل 'visualization.py'
         self.create_subscription(
-            Temperature, '/sensors/temperature', self.temp_callback, qos_profile)
+            Temperature, '/sensors/temperature', self.temp_callback, 10)
         self.create_subscription(
-            FluidPressure, '/sensors/barometer', self.pressure_callback, qos_profile)
+            FluidPressure, '/sensors/barometer', self.pressure_callback, 10)
+        # --- نهاية التعديل ---
 
         # الناشرون (Publishers)
-        # هذه هي المواضيع التي يستمع إليها 'visualization.py'
         self.fused_temp_pub = self.create_publisher(
             Float64, '/fused/temperature', 10)
         self.fused_altitude_pub = self.create_publisher(
@@ -60,11 +59,9 @@ class SensorFusionNode(Node):
         """يستقبل الضغط، يحسب الارتفاع، يفلتره، وينشره"""
         try:
             pressure_pa = msg.fluid_pressure
-            # حساب الارتفاع
             pressure_ratio = pressure_pa / self.SEA_LEVEL_PRESSURE_PA
             raw_altitude = 44330.0 * (1.0 - (pressure_ratio ** 0.190284))
             
-            # فلترة الارتفاع
             self.altitude_buffer.append(raw_altitude)
             
             if self.altitude_buffer:
