@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/sensor_fusion_system/sensor_fusion_system.egg-info
+writing ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/PKG-INFO
+writing dependency_links to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/dependency_links.txt
+writing requirements to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/requires.txt
+writing top-level names to ../../build/sensor_fusion_system/sensor_fusion_system.egg-info/top_level.txt
+writing manifest file '../../build/sensor_fusion_system/sensor_fusion_system.egg-info/SOURCES.txt'
+reading manifest file '../../build/sensor_fusion_system/sensor_fusion_system.egg-info/SOURCES.txt'
+writing manifest file '../../build/sensor_fusion_system/sensor_fusion_system.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/mtahr/sensor_System/build/sensor_fusion_system/build
+creating /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib
+creating /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib/sensor_fusion_system
+copying sensor_fusion_system/__init__.py -> /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib/sensor_fusion_system
+running install
+running install_lib
+creating /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system
+copying /home/mtahr/sensor_System/build/sensor_fusion_system/build/lib/sensor_fusion_system/__init__.py -> /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system
+byte-compiling /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/mtahr/sensor_System/install/sensor_fusion_system/share/ament_index
+creating /home/mtahr/sensor_System/install/sensor_fusion_system/share/ament_index/resource_index
+creating /home/mtahr/sensor_System/install/sensor_fusion_system/share/ament_index/resource_index/packages
+copying resource/sensor_fusion_system -> /home/mtahr/sensor_System/install/sensor_fusion_system/share/ament_index/resource_index/packages
+copying package.xml -> /home/mtahr/sensor_System/install/sensor_fusion_system/share/sensor_fusion_system
+running install_egg_info
+Copying ../../build/sensor_fusion_system/sensor_fusion_system.egg-info to /home/mtahr/sensor_System/install/sensor_fusion_system/lib/python3.12/site-packages/sensor_fusion_system-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/mtahr/sensor_System/build/sensor_fusion_system/install.log'
