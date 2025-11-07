@@ -85,8 +85,8 @@ class VisualizationNode(Node):
 
             # Reset current values to NaN to avoid plotting stale data
             # This makes the plot show gaps if a sensor stops sending data
-            self.current_altitude = np.nan
-            self.current_temp = np.nan
+            # self.current_altitude = np.nan
+            # self.current_temp = np.nan
 
             # Update altitude plot data
             self.line_alt.set_data(self.time_data, self.altitude_data)
